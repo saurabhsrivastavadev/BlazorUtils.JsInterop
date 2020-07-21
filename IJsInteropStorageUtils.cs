@@ -8,6 +8,6 @@ namespace BlazorUtils.JsInterop
     public interface IJsInteropStorageUtils
     {
         public Task<string> LocalStorageGetItem(string key);
-        public Task<string> LocalStorageSetItem(string key, string value);
+        public Task LocalStorageSetItem(string key, string value);
     }
 }

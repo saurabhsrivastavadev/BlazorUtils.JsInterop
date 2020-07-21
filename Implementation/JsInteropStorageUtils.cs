@@ -19,9 +19,9 @@ namespace BlazorUtils.JsInterop
             return await _jsr.InvokeAsync<string>("localStorage.getItem", key);
         }
 
-        public async Task<string> LocalStorageSetItem(string key, string value)
+        public async Task LocalStorageSetItem(string key, string value)
         {
-            return await _jsr.InvokeAsync<string>("localStorage.setItem", key, value);
+            await _jsr.InvokeAsync<string>("localStorage.setItem", key, value);
         }
     }
 }
