@@ -9,5 +9,6 @@ namespace BlazorUtils.JsInterop
     {
         public Task<string> LocalStorageGetItem(string key);
         public Task LocalStorageSetItem(string key, string value);
+        public Task LocalStorageDeleteItem(string key);
     }
 }

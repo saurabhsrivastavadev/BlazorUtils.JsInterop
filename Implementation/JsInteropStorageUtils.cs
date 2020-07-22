@@ -23,5 +23,10 @@ namespace BlazorUtils.JsInterop
         {
             await _jsr.InvokeAsync<string>("localStorage.setItem", key, value);
         }
+
+        public async Task LocalStorageDeleteItem(string key)
+        {
+            await _jsr.InvokeAsync<string>("localStorage.removeItem", key);
+        }
     }
 }
