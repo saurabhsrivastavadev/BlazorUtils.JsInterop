@@ -1,13 +1,15 @@
-﻿/* File containing functions for JS Interop */
+﻿// jsinterop.js module
 
 //-------------------------------------------------------------
 // Timezone info utilities
 //-------------------------------------------------------------
-window.getLocalTimezoneOffset = () => {
+async function getLocalTimezoneOffset() {
+
     return new Date().getTimezoneOffset();
 }
 
-window.getLocalTimezoneName = () => {
+async function getLocalTimezoneName() {
+
     return Intl.DateTimeFormat().resolvedOptions().timeZone;
 }
 //-------------------------------------------------------------
@@ -20,21 +22,31 @@ window.getLocalTimezoneName = () => {
 let pwaInstallPrompt;
 let pwaIsInstalled = true;
 
-window.addEventListener('beforeinstallprompt', (e) => {
+async function pwaInit() {
 
-    console.log('beforeinstallprompt event');
+    window.addEventListener('beforeinstallprompt', (e) => {
 
-    pwaIsInstalled = false;
+        console.log('beforeinstallprompt event');
 
-    // Prevent the mini-infobar from appearing on mobile
-    e.preventDefault();
-    // Stash the event so it can be triggered later.
-    pwaInstallPrompt = e;
+        pwaIsInstalled = false;
 
-    console.log("saved the pwa install prompt for app trigger.");
-});
+        // Prevent the mini-infobar from appearing on mobile
+        e.preventDefault();
 
-window.showPwaInstallPrompt = () => {
+        // Stash the event so it can be triggered later.
+        pwaInstallPrompt = e;
+
+        console.log("saved the pwa install prompt for app trigger.");
+    });
+
+    window.addEventListener('appinstalled', (e) => {
+
+        console.log('appinstalled event');
+        pwaIsInstalled = true;
+    });
+}
+
+async function showPwaInstallPrompt() {
 
     if (pwaInstallPrompt) {
 
@@ -53,15 +65,15 @@ window.showPwaInstallPrompt = () => {
     }
 }
 
-window.addEventListener('appinstalled', (e) => {
-
-    console.log('appinstalled event');
-    pwaIsInstalled = true;
-});
-
-window.isPwaInstalled = () => {
+async function isPwaInstalled() {
 
     return pwaIsInstalled;
 }
 
 //-------------------------------------------------------------
+
+export {
+
+    getLocalTimezoneOffset, getLocalTimezoneName,
+    pwaInit, showPwaInstallPrompt, isPwaInstalled
+};
