@@ -11,10 +11,12 @@ namespace BlazorUtils.JsInterop
     {
         private readonly Lazy<Task<IJSObjectReference>> _jsinteropModuleTask;
 
-        private ILogger<JsInteropTimeUtils> Logger { get; set; }
+        private ILogger Logger { get; }
 
-        internal JsInteropTimeUtils(IJSRuntime jsr)
+        internal JsInteropTimeUtils(IJSRuntime jsr, ILogger logger)
         {
+            Logger = logger;
+
             _jsinteropModuleTask = new(() => jsr.InvokeAsync<IJSObjectReference>(
                 "import", "./_content/BlazorUtils.JsInterop/jsinterop.js").AsTask());
         }

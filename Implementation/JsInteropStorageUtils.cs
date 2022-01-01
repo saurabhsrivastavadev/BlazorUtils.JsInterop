@@ -1,4 +1,5 @@
-﻿using Microsoft.JSInterop;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,11 @@ namespace BlazorUtils.JsInterop
     internal class JsInteropStorageUtils : IJsInteropStorageUtils
     {
         private IJSRuntime _jsr;
-        internal JsInteropStorageUtils(IJSRuntime jsr)
+        ILogger Logger { get; }
+
+        internal JsInteropStorageUtils(IJSRuntime jsr, ILogger logger)
         {
+            Logger = logger;
             _jsr = jsr;
         }
 

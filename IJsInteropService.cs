@@ -9,5 +9,6 @@ namespace BlazorUtils.JsInterop
         public IJsInteropStorageUtils StorageUtils { get; }
         public IJsInteropPwaUtils PwaUtils { get;  }
         public IJsInteropTimeUtils TimeUtils { get;  }
+        public IJsInteropDocumentUtils DocumentUtils { get; }
     }
 }
