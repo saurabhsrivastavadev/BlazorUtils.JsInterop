@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BlazorUtils.JsInterop
 {
-    public interface IJsInteropPwaUtils
+    public interface IJSTimeUtils
     {
-        public Task<bool> ShowPwaInstallPrompt();
-        public Task<bool> IsPwaInstalled();
+        public Task<int> GetLocalTimezoneOffset();
+        public Task<string> GetLocalTimezoneName();
     }
 }

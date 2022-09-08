@@ -5,26 +5,26 @@ using System.Threading.Tasks;
 
 namespace BlazorUtils.JsInterop
 {
-    public class JsInteropDocumentUtils : IJsInteropDocumentUtils
+    public class JSDocumentUtils : IJSDocumentUtils
     {
         private readonly Lazy<Task<IJSObjectReference>> _jsinteropModuleTask;
 
         private ILogger Logger { get; }
 
-        public IJsInteropDocumentUtils.DocumentVisibilityChangeCallbackType 
+        public IJSDocumentUtils.DocumentVisibilityChangeCallbackType 
             DocumentVisibilityChangeCallback { get; set; }
 
         // Hold instance for callback invocation from javascript
-        private static WeakReference<JsInteropDocumentUtils> Instance { get; set; }
+        private static WeakReference<JSDocumentUtils> Instance { get; set; }
 
-        internal JsInteropDocumentUtils(IJSRuntime jsr, ILogger logger)
+        internal JSDocumentUtils(IJSRuntime jsr, ILogger logger)
         {
             if (Instance != null)
             {
                 throw new Exception("Only one instance of FirebaseGoogleAuthService allowed.");
             }
 
-            Instance = new WeakReference<JsInteropDocumentUtils>(this);
+            Instance = new WeakReference<JSDocumentUtils>(this);
 
             Logger = logger;
 
@@ -64,7 +64,7 @@ namespace BlazorUtils.JsInterop
         [JSInvokable]
         public static void OnDocumentVisibilityChangedJsCallback(bool isVisible)
         {
-            JsInteropDocumentUtils instance;
+            JSDocumentUtils instance;
             if (Instance.TryGetTarget(out instance))
             {
                 instance.DocumentVisibilityChangeCallback.Invoke(isVisible);

@@ -8,17 +8,17 @@ namespace BlazorUtils.JsInterop
 {
     public class JsInteropService : IJsInteropService
     {
-        public IJsInteropStorageUtils StorageUtils { get; private set; }
-        public IJsInteropPwaUtils PwaUtils { get; private set; }
-        public IJsInteropTimeUtils TimeUtils { get; private set; }
-        public IJsInteropDocumentUtils DocumentUtils { get; private set; }
+        public IJSLocalStorageUtils StorageUtils { get; private set; }
+        public IJSPwaUtils PwaUtils { get; private set; }
+        public IJSTimeUtils TimeUtils { get; private set; }
+        public IJSDocumentUtils DocumentUtils { get; private set; }
 
         public JsInteropService(IJSRuntime jsr, ILogger<JsInteropService> logger)
         {
-            StorageUtils = new JsInteropStorageUtils(jsr, logger);
-            PwaUtils = new JsInteropPwaUtils(jsr, logger);
-            TimeUtils = new JsInteropTimeUtils(jsr, logger);
-            DocumentUtils = new JsInteropDocumentUtils(jsr, logger);
+            StorageUtils = new JSLocalStorageUtils(jsr, logger);
+            PwaUtils = new JSPwaUtils(jsr, logger);
+            TimeUtils = new JSTimeUtils(jsr, logger);
+            DocumentUtils = new JSDocumentUtils(jsr, logger);
         }
     }
 }

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace BlazorUtils.JsInterop
 {
-    internal class JsInteropStorageUtils : IJsInteropStorageUtils
+    internal class JSLocalStorageUtils : IJSLocalStorageUtils
     {
         private IJSRuntime _jsr;
         ILogger Logger { get; }
 
-        internal JsInteropStorageUtils(IJSRuntime jsr, ILogger logger)
+        internal JSLocalStorageUtils(IJSRuntime jsr, ILogger logger)
         {
             Logger = logger;
             _jsr = jsr;

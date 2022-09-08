@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BlazorUtils.JsInterop
 {
-    public interface IJsInteropStorageUtils
+    public interface IJSLocalStorageUtils
     {
         public Task<string> LocalStorageGetItem(string key);
         public Task LocalStorageSetItem(string key, string value);

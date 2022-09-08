@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BlazorUtils.JsInterop
 {
-    internal class JsInteropPwaUtils : IJsInteropPwaUtils
+    internal class JSPwaUtils : IJSPwaUtils
     {
         private readonly Lazy<Task<IJSObjectReference>> _jsinteropModuleTask;
 
@@ -13,7 +13,7 @@ namespace BlazorUtils.JsInterop
 
         private bool _isPwaInitDone = false;
 
-        internal JsInteropPwaUtils(IJSRuntime jsr, ILogger logger)
+        internal JSPwaUtils(IJSRuntime jsr, ILogger logger)
         {
             Logger = logger;
 

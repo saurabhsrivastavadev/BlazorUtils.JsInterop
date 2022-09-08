@@ -6,9 +6,9 @@ namespace BlazorUtils.JsInterop
 {
     public interface IJsInteropService
     {
-        public IJsInteropStorageUtils StorageUtils { get; }
-        public IJsInteropPwaUtils PwaUtils { get;  }
-        public IJsInteropTimeUtils TimeUtils { get;  }
-        public IJsInteropDocumentUtils DocumentUtils { get; }
+        public IJSLocalStorageUtils StorageUtils { get; }
+        public IJSPwaUtils PwaUtils { get;  }
+        public IJSTimeUtils TimeUtils { get;  }
+        public IJSDocumentUtils DocumentUtils { get; }
     }
 }

@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace BlazorUtils.JsInterop
 {
-    internal class JsInteropTimeUtils : IJsInteropTimeUtils
+    internal class JSTimeUtils : IJSTimeUtils
     {
         private readonly Lazy<Task<IJSObjectReference>> _jsinteropModuleTask;
 
         private ILogger Logger { get; }
 
-        internal JsInteropTimeUtils(IJSRuntime jsr, ILogger logger)
+        internal JSTimeUtils(IJSRuntime jsr, ILogger logger)
         {
             Logger = logger;
 

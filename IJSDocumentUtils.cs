@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlazorUtils.JsInterop
 {
-    public interface IJsInteropDocumentUtils
+    public interface IJSDocumentUtils
     {
         /// <summary>
         /// Start listening for document visibility change.
