@@ -18,7 +18,7 @@ namespace BlazorUtils.JsInterop
             Logger = logger;
 
             _jsinteropModuleTask = new(() => jsr.InvokeAsync<IJSObjectReference>(
-                "import", "./_content/BlazorUtils.JsInterop/jsinterop.js").AsTask());
+                "import", "./_content/BlazorUtils.JsInterop/timeutils.js").AsTask());
         }
 
         // Returns the offset from UTC in minutes

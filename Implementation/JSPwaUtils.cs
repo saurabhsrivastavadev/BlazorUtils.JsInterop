@@ -18,7 +18,7 @@ namespace BlazorUtils.JsInterop
             Logger = logger;
 
             _jsinteropModuleTask = new(() => jsr.InvokeAsync<IJSObjectReference>(
-                "import", "./_content/BlazorUtils.JsInterop/jsinterop.js").AsTask());
+                "import", "./_content/BlazorUtils.JsInterop/pwautils.js").AsTask());
         }
 
         public async Task PwaInit()
