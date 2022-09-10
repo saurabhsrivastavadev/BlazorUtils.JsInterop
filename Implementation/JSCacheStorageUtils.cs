@@ -21,7 +21,6 @@ namespace BlazorUtils.JsInterop
                 "import", "./_content/BlazorUtils.JsInterop/cachestorageutils.js").AsTask());
         }
 
-        // Returns the offset from UTC in minutes
         public async Task<bool> DeleteRequestsFromCache(string cacheName, string requestUrlRegex)
         {
             var module = await _jsinteropModuleTask.Value;
@@ -35,6 +34,25 @@ namespace BlazorUtils.JsInterop
             catch (Exception e)
             {
                 Logger.LogError("Failed to execute deleteRequestsFromCache");
+                Logger.LogError(e.Message);
+            }
+
+            return result;
+        }
+
+        public async Task<bool> DeleteRequestsFromAllCaches(string requestUrlRegex)
+        {
+            var module = await _jsinteropModuleTask.Value;
+
+            bool result = false;
+            try
+            {
+                result = await module.InvokeAsync<bool>(
+                    "deleteRequestsFromAllCaches", requestUrlRegex);
+            }
+            catch (Exception e)
+            {
+                Logger.LogError("Failed to execute deleteRequestsFromAllCaches");
                 Logger.LogError(e.Message);
             }
 

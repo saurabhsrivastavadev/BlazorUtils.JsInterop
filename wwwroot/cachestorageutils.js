@@ -29,6 +29,25 @@ async function deleteRequestsFromCache(cacheNameStr, requestUrlRegexStr) {
     return false;
 }
 
+async function deleteRequestsFromAllCaches(requestUrlRegexStr) {
+
+    console.log(`deleteRequestsFromAllCaches(${requestUrlRegexStr}`);
+
+    let cacheKeys = await caches.keys();
+    if (cacheKeys) {
+
+        let result = true;
+        cacheKeys.forEach(cacheNameStr => {
+
+            result &&= deleteRequestsFromCache(cacheNameStr, requestUrlRegexStr);
+        });
+
+        return result;
+    }
+
+    return false;
+}
+
 export {
-    deleteRequestsFromCache
+    deleteRequestsFromCache, deleteRequestsFromAllCaches
 };
